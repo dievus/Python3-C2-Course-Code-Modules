@@ -6,8 +6,6 @@
   <img src="https://github.com/dievus/Python3-C2-Course-Code-Modules/blob/main/SMTP%20Module/images/smtp.png" />
 </p>
 
-https://github.com/dievus/Python3-C2-Course-Code-Modules/blob/main/SMTP%20Module/images/smtp.png?
-
 This module adds a function file called smtp.py to the project, which can be used to notify you that a new connection has been made to your C2.
 
 # Usage
