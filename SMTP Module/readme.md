@@ -35,7 +35,7 @@ if command == 'email_gen -e':
     email_gen = 1
 # Disable email notifications by setting email_gen value to 0
 if command == 'email_gen -d':
-    email_gen - 0
+    email_gen = 0
 ```
 6. In smtp.py, modify the ```smtp_server``` and ```smtp_port``` variables to meet the requirements of your email service
 
