@@ -44,9 +44,3 @@ What is happening here is that we are creating a variable that will load into th
 ### Notes
 
 It is up to you to determine how to set up and manage the appropriate information for your email account. 
-
-```
-if email_gen == 1:
-    email_format = f'{remote_ip[0]}'
-    email_handler(email_format)
-```
