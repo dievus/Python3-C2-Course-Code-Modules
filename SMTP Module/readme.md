@@ -18,7 +18,7 @@ This module adds a function file called smtp.py to the project, which can be use
 
 1. Create a new folder called "functions", and add the smtp.py file to it. 
 2. Inside of your C2 main script, add a new import - ```from functions.smtp import email_handler```
-3. In the ```comm_handler``` function, add the following variable - ```email_format = f'{remote_ip[0]}'```
+3. In the ```comm_handler``` function, add the following variable after op_sys - ```email_format = f'{remote_ip[0]}'```
 4. On the following line in ```comm_handler```, add the following call - ```email_handler(email_format)```
 5. In smtp.py, modify the ```smtp_server``` and ```smtp_port``` variables to meet the requirements of your email service
 
