@@ -38,8 +38,11 @@ if command == 'email_gen -d':
     email_gen = 0
 ```
 6. In smtp.py, modify the ```smtp_server``` and ```smtp_port``` variables to meet the requirements of your email service
+7. Make sure to update your Help menu with the new commands
 
-What is happening here is that we are creating a variable that will load into the email_handler function of smtp.py, which will tell you the hostname and IP address of the connecting client. The smtp.py script will load the environmental variables set in .env, start a SMTP session, and send an email with the information provided by the variable.
+### Functionality 
+
+When the C2 server starts, the email_gen variable is set to 0. When you run `email_gen -e` you are setting the email_gen variable to 1, which tells the updated comm_handler function to send the email_format variable to the email_handler variable of smtp.py. The smtp.py file loads the environmental variables set in the .env file, takes the information provided by the email_handler() call, and sends the email.
 
 ### Notes
 
