@@ -4,3 +4,7 @@
 ### SMTP Module
 
 A free and easy to use module for sending connection notifications via email
+
+### File Transfer Module
+
+A free and easy to use module for transfering files to and from the C2 and payloads
