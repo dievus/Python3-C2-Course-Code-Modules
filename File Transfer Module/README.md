@@ -21,15 +21,12 @@ from functions.transfer import upload_file, download_file
                 upload_file(filename)
             elif message[:9] == 'download ':
                 filename = message[9:]
-                print(filename)
                 try:
                     if os.path.exists(filename):
                         print('file exists')
                         filename = os.path.basename(filename)
                         download_file(filename)
                     else:
-                        print('False')
-                        response = '0'
                         response = bytes((response), encoding='utf8')
                         secure_sock.send(response)
                 except FileNotFoundError:
