@@ -18,15 +18,16 @@ from functions.transfer import upload_file, download_file
 ```
             elif message[:7] == 'upload ':
                 filename = message[7:]
+                filename = os.path.basename(filename)
                 upload_file(filename)
             elif message[:9] == 'download ':
                 filename = message[9:]
+                print(filename)
                 try:
                     if os.path.exists(filename):
-                        print('file exists')
-                        filename = os.path.basename(filename)
                         download_file(filename)
                     else:
+                        response = '0'
                         response = bytes((response), encoding='utf8')
                         secure_sock.send(response)
                 except FileNotFoundError:
@@ -78,3 +79,6 @@ def download_file(file_name):
 
 ### Functionality 
 Using the ```upload``` and ```download``` commands followed by the file name to send, you can transfer files to and from.
+
+## Notes
+This update does not currently like downloading files that are not text-based.
